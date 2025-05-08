@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script>
+        let grid = [
+  ["P", "S", "U", "W", "H", "A", "T", "S"],
+  ["L", "P", "A", "C", "K", "A", "G", "E"],
+  ["N", "Y", "O", "L", "R", "D", "V", "L"],
+  ["F", "I", "N", "G", "E", "Z", "B", "M"],
+  ["I", "R", "E", "H", "Q", "N", "J", "O"],
+  ["A", "T", "B", "V", "G", "Y", "E", "S"],
+  ["J", "D", "U", "W", "U", "E", "S", "T"],
+  ["P", "S", "T", "I", "C", "K", "E", "Y"]
+];
+
+let words = ["stick", "most", "key", "vein", "yes", "package", "tube", "target", "elm", "spy"];
+
+let dir = [
+  [0, 1], [1, 0], [1, 1], [1, -1],
+  [0, -1], [-1, 0], [-1, -1], [-1, 1]
+];
+
+function findWord(word) {
+  for (let i = 0; i < 8; i++) {
+    for (let j = 0; j < 8; j++) {
+      for (let d = 0; d < dir.length; d++) {
+        let x = i, y = j;
+        let k = 0;
+        while (k < word.length) {
+          if (x < 0 || x >= 8 || y < 0 || y >= 8) break;
+          if (grid[x][y].toLowerCase() !== word[k]) break;
+          x += dir[d][0];
+          y += dir[d][1];
+          k++;
+        }
+        if (k === word.length) {
+          console.log(word + " found at (" + i + "," + j + ")");
+          return;
+        }
+      }
+    }
+  }
+  console.log(word + " not found");
+}
+
+for (let w = 0; w < words.length; w++) {
+  findWord(words[w]);
+}
+        </script>
+    </head>
+</html>

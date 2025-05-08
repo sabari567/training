@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shuffle Checker</title>
+    <script>
+        function isShuffledWell(arr) {
+            let count = 1;
+
+            for (let i = 1; i < arr.length; i++) {
+                if (Math.abs(arr[i] - arr[i - 1]) === 1) {
+                    count++;
+                    if (count >= 3) return false;
+                } else {
+                    count = 1;
+                }
+            }
+
+            return true;
+        }
+        window.onload = function() {
+            const test1 = [1, 2, 3, 5, 8, 6, 9, 10, 7, 4];
+            const test2 = [1, 5, 3, 8, 10, 2, 7, 6, 4, 9];
+            console.log("Test 1:", isShuffledWell(test1)); // false
+            console.log("Test 2:", isShuffledWell(test2)); // true
+        }
+    </script>
+</head>
+<body>
+    <h1>test result in console</h1>
+</body>
+</html>

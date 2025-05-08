@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script>
+           function lowestNeighbor(arr, x, y) {
+  const numRows = arr.length;
+  const numCols = arr[0].length;
+  const currentValue = arr[x][y];
+  let min = currentValue;
+
+  // Check all 8 surrounding neighbors
+  for (let dx = -1; dx <= 1; dx++) {
+    for (let dy = -1; dy <= 1; dy++) {
+      if (dx === 0 && dy === 0) continue; // Skip the current cell
+
+      const newX = x + dx;
+      const newY = y + dy;
+
+      // Ensure the neighbor is within bounds
+      if (newX >= 0 && newX < numRows && newY >= 0 && newY < numCols) {
+        min = Math.min(min, arr[newX][newY]);
+      }
+    }
+  }
+
+  return min;
+}
+
+// Example usage:
+const matrix = [
+  [5, 3, 8],
+  [2, 4, 6],
+  [7, 1, 9]
+];
+
+console.log(lowestNeighbor(matrix, 1, 1)); // Output: 1
+console.log(lowestNeighbor(matrix, 0, 0)); // Output: 2
+console.log(lowestNeighbor(matrix, 2, 2)); // Output: 1
+        </script>
+    </head>
+</html>
