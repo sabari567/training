@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <script>
+            let a = 5, b = 10;
+[a, b] = [b, a];
+console.log(a, b); // 10, 5
+let num = 7;
+console.log(num % 2 === 0 ? "Even" : "Odd");
+let str = "hello";
+console.log(str.split('').reverse().join('')); // "olleh"6
+let nested = [1, [2, [3, 4]]];
+console.log(nested.flat(2)); // [1, 2, 3, 4]
+let arr = [1, 2, 2, 3, 3];
+console.log([...new Set(arr)]); // [1, 2, 3]
+let isPal = str => str === str.split('').reverse().join('');
+console.log(isPal("madam")); // true
+let cap = str => str.charAt(0).toUpperCase() + str.slice(1);
+console.log(cap("hello")); // "Hello"
+let age = 18;
+console.log(age >= 18 ? "Adult" : "Minor");
+let name = "";
+console.log(name || "car"); // "car"
+        </script>
+    </head>
+</html>
