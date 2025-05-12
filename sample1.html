@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Programming</title>
+</head>
+<body>
+    <h2>Calculator</h2>
+    <p>Enter two numbers and click the button:</p>
+
+    <input type="number" id="num1" placeholder="Enter a number">
+    <input type="number" id="num2" placeholder="Enter a number"><br><br>
+
+    <button onclick="calculateSum()">Add</button>
+    <button onclick="calculateSub()">Subtract</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateSum() {
+            var number1 = parseFloat(document.getElementById('num1').value);
+            var number2 = parseFloat(document.getElementById('num2').value);
+
+            var sum = number1 + number2;
+            document.getElementById('result').innerText = "The sum is: " + sum;
+        }
+
+        function calculateSub() {
+            var number1 = parseFloat(document.getElementById('num1').value);
+            var number2 = parseFloat(document.getElementById('num2').value);
+
+            var difference = number1 - number2;
+            document.getElementById('result').innerText = "The difference is: " + difference;
+        }
+    </script>
+</body>
+</html>
