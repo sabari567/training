@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Various JavaScript Problems</title>
+    <script>
+        // 1. Sum of Numbers in an Array
+        function sumArray(arr) {
+            return arr.reduce((sum, num) => sum + num, 0);
+        }
+
+        // 2. Check Prime Number
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        // 3. Find Maximum Number in an Array
+        function findMax(arr) {
+            return Math.max(...arr);
+        }
+
+        // 4. Palindrome Check
+        function isPalindrome(str) {
+            let cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+            return cleaned === cleaned.split('').reverse().join('');
+        }
+
+        // 5. Fibonacci Sequence Generator
+        function fibonacci(n) {
+            let fib = [0, 1];
+            for (let i = 2; i < n; i++) {
+                fib.push(fib[i - 1] + fib[i - 2]);
+            }
+            return fib.slice(0, n);
+        }
+
+        // 6. Factorial of a Number
+        function factorial(n) {
+            if (n === 0) return 1;
+            return n * factorial(n - 1);
+        }
+
+        // 7. Count Vowels in a String
+        function countVowels(str) {
+            return (str.match(/[aeiou]/gi) || []).length;
+        }
+
+        // 8. Remove Duplicates from an Array
+        function removeDuplicates(arr) {
+            return [...new Set(arr)];
+        }
+
+        // 9. Reverse an Array
+        function reverseArray(arr) {
+            let result = [];
+            for (let i = arr.length - 1; i >= 0; i--) {
+                result.push(arr[i]);
+            }
+            return result;
+        }
+
+        // 10. Check if Array is Sorted
+        function isSorted(arr) {
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < arr[i - 1]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function displayResults() {
+            let output = document.getElementById("output");
+
+            output.innerHTML = `
+                <h2>JavaScript Problem Solutions</h2>
+                <b>1. Sum of Numbers:</b> ${sumArray([1, 2, 3, 4, 5])}<br><br>
+
+                <b>2. Check Prime (7):</b> ${isPrime(7)}<br><br>
+
+                <b>3. Find Max Number:</b> ${findMax([10, 20, 30, 5, 15])}<br><br>
+
+                <b>4. Palindrome Check ('madam'):</b> ${isPalindrome('madam')}<br><br>
+
+                <b>5. Fibonacci (7 numbers):</b> ${fibonacci(7).join(', ')}<br><br>
+
+                <b>6. Factorial (5):</b> ${factorial(5)}<br><br>
+
+                <b>7. Count Vowels ('Hello World'):</b> ${countVowels('Hello World')}<br><br>
+
+                <b>8. Remove Duplicates:</b> ${removeDuplicates([1, 2, 2, 3, 4, 4, 5]).join(', ')}<br><br>
+
+                <b>9. Reverse Array:</b> ${reverseArray([1, 2, 3, 4, 5]).join(', ')}<br><br>
+
+                <b>10. Check if Sorted:</b> ${isSorted([1, 2, 3, 4, 5])}<br>
+                <b>Check if Sorted (Not sorted example):</b> ${isSorted([5, 3, 1])}<br>
+            `;
+        }
+
+        window.onload = displayResults;
+    </script>
+</head>
+<body>
+    <h1>Various JavaScript Problems</h1>
+    <div id="output" style="font-family: Arial; font-size: 16px;"></div>
+</body>
+</html>

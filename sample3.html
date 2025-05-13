@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Odd Numbers Example</title>
+    <script>
+        function getOddNumbers(arr) {
+            let oddNumbers = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 !== 0) {  // Corrected logic to get odd numbers
+                    oddNumbers.push(arr[i]);
+                }
+            }
+            return oddNumbers;
+        }
+
+        function displayOddNumbers() {
+            let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            let result = getOddNumbers(numbers);
+
+            let table = document.getElementById("oddTable");
+
+            result.forEach(function(num) {
+                let row = table.insertRow();
+                let cell = row.insertCell();
+                cell.textContent = num;
+            });
+        }
+
+        window.onload = displayOddNumbers;
+    </script>
+</head>
+<body>
+    <h1>Odd Numbers:</h1>
+    <table id="oddTable" border="1"></table>
+</body>
+</html>
